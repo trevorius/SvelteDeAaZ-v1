@@ -1,4 +1,5 @@
 <script>
+  import List1 from './List1.svelte';
   export let name;
   let title = 'Monsieur';
   let count = 0;
@@ -26,6 +27,8 @@
   <button on:click={increment}> +1 </button>
   <button on:click={decrement}> -1 </button>
   <button on:click={reset}> RESET </button>
+
+  <List1 />
 </main>
 
 <style>
