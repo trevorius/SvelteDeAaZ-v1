@@ -13,6 +13,17 @@
   const reset = () => {
     count = 0;
   };
+
+  // list infos
+  let lorem =
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rem aliquid repellat excepturi provident earum delectus beatae dolores facilis maiores! Iusto fugit beatae est aut praesentium! Expedita similique numquam officia.';
+
+  let cat = {
+    weight: 2,
+    color: 'grey',
+    race: 'persian',
+    age: 3,
+  };
 </script>
 
 <main>
@@ -28,8 +39,13 @@
   <button on:click={decrement}> -1 </button>
   <button on:click={reset}> RESET </button>
 
-  <List1 title=" liste1" />
-  <List1 {title} />
+  <!-- prop can be defined in component -->
+  <List1 {title} name="socks" />
+  <List1 title=" liste1" {...cat} />
+  <!-- props can be made equal to local variables -->
+  <List1 title={name} />
+  <!-- props can be defined using shorthand if variable is the same nae as the prop -->
+  <List1 {title} {lorem} />
 </main>
 
 <style>
