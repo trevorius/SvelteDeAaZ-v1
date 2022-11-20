@@ -1,4 +1,5 @@
 <script>
+  import CountryList from './first components/CountryList.svelte';
   import DisplayToggler from './first components/DisplayToggler.svelte';
   import Counter from './first components/Counter.svelte';
 
@@ -9,6 +10,8 @@
     incrementValue: 5,
   };
 </script>
+
+<CountryList />
 
 <Counter {...counterProps} />
 
