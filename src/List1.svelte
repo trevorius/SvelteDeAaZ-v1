@@ -1,6 +1,8 @@
-<script></script>
+<script>
+  export let title;
+</script>
 
-<h2>list title</h2>
+<h2>{title}</h2>
 <ul>
   <li>Lorem</li>
   <li>Lorem</li>

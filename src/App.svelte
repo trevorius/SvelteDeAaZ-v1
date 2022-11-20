@@ -28,7 +28,8 @@
   <button on:click={decrement}> -1 </button>
   <button on:click={reset}> RESET </button>
 
-  <List1 />
+  <List1 title=" liste1" />
+  <List1 {title} />
 </main>
 
 <style>
