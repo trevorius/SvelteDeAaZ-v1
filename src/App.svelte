@@ -1,6 +1,17 @@
 <script>
   export let name;
   let title = 'Monsieur';
+  let count = 0;
+
+  const increment = () => {
+    count += 1;
+  };
+  const decrement = () => {
+    count--;
+  };
+  const reset = () => {
+    count = 0;
+  };
 </script>
 
 <main>
@@ -9,6 +20,12 @@
     Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
     how to build Svelte apps.
   </p>
+  <h2>
+    {count}
+  </h2>
+  <button on:click={increment}> +1 </button>
+  <button on:click={decrement}> -1 </button>
+  <button on:click={reset}> RESET </button>
 </main>
 
 <style>
