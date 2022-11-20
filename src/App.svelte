@@ -8,14 +8,17 @@
 
 <button on:click={toggleDisplay}>{toggle === false ? 'Display' : 'Hide'}</button
 >
-<div class={toggle ? 'show' : 'hide'}>
-  <h2>contents to display or not</h2>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae
-    officiis voluptas neque accusamus nihil recusandae necessitatibus cumque
-    rerum. Similique!
-  </p>
-</div>
+
+{#if toggle}
+  <div class="show">
+    <h2>contents to display or not</h2>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae
+      officiis voluptas neque accusamus nihil recusandae necessitatibus cumque
+      rerum. Similique!
+    </p>
+  </div>
+{/if}
 
 <style>
   .show {
