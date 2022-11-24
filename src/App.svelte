@@ -1,4 +1,5 @@
 <script>
+  import Form from './first components/Form.svelte';
   import CountryList from './first components/ListIterations.svelte';
   import DisplayToggler from './first components/DisplayToggler.svelte';
   import Counter from './first components/Counter.svelte';
@@ -12,8 +13,11 @@
   let countries = ['France', 'England', 'Deutchland', 'Espana'];
 </script>
 
+<Form />
+
+<!-- 
 <CountryList {countries} />
 
 <Counter {...counterProps} />
 
-<DisplayToggler />
+<DisplayToggler /> -->
