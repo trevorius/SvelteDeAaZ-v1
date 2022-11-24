@@ -3,11 +3,13 @@
   let city = '';
   let age = '';
   let weight = '';
+  let message = '';
   let formData = {
     country: '',
     city: '',
     age: '',
     weight: '',
+    message: '',
   };
   const addCountry = (e) => {
     formData.country = e.target.value;
@@ -19,6 +21,7 @@
     city = formData.city;
     age = formData.age;
     weight = formData.weight;
+    message = formData.message;
   };
 </script>
 
@@ -34,11 +37,8 @@
         id="country"
         class="form-control"
         placeholder="enter your country"
-        aria-describedby="country__help"
+        aria-describedby="country__value"
       />
-      <small id="country__help" class="text-muted"
-        >enter yor country of residence here: {country}
-      </small>
     </div>
     <div class="mb-3 form-group">
       <label for="city" class="form-label">City</label>
@@ -49,11 +49,8 @@
         id="city"
         class="form-control"
         placeholder="City of residence"
-        aria-describedby="helpCity"
+        aria-describedby="city__value"
       />
-      <small id="helpCity" class="text-muted"
-        >enter you city of residence current is : {city}
-      </small>
     </div>
     <div class="mb-3">
       <label for="age" class="form-label">Age</label>
@@ -64,9 +61,8 @@
         id="age"
         class="form-control"
         placeholder=""
-        aria-describedby="age__help"
+        aria-describedby="age__value"
       />
-      <small id="age__help" class="text-muted">your age is : {age}</small>
     </div>
     <div class="mb-3">
       <label for="weight" class="form-label"
@@ -81,13 +77,38 @@
         id="weight"
         class="form-control"
         placeholder=""
-        aria-describedby="weight__help"
+        aria-describedby="weight__value"
       />
-      <small id="weight__help" class="text-muted"
-        >your weight : {weight} lb</small
-      >
+    </div>
+
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea
+        bind:value={formData.message}
+        class="form-control"
+        name="message"
+        id="message"
+        aria-describedby="message__value"
+      />
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
+  <h3 id="country__value" class="text-muted">
+    country of residence here: {country}
+  </h3>
+  <h3 id="city__value" class="text-muted">
+    city of residence current is : {city}
+  </h3>
+  <h3 id="age__value" class="text-muted">
+    your age is : {age}
+  </h3>
+  <h3 id="weight__value" class="text-muted">
+    your weight : {weight} lb
+  </h3>
+  <hr />
+  <p id="message__value">
+    {message}
+  </p>
 </div>
