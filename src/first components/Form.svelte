@@ -1,9 +1,13 @@
 <script>
   let country = '';
   let city = '';
+  let age = '';
+  let weight = '';
   let formData = {
     country: '',
     city: '',
+    age: '',
+    weight: '',
   };
   const addCountry = (e) => {
     formData.country = e.target.value;
@@ -13,6 +17,8 @@
     e.preventDefault();
     country = formData.country;
     city = formData.city;
+    age = formData.age;
+    weight = formData.weight;
   };
 </script>
 
@@ -48,6 +54,38 @@
       <small id="helpCity" class="text-muted"
         >enter you city of residence current is : {city}
       </small>
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input
+        bind:value={formData.age}
+        type="number"
+        name="age"
+        id="age"
+        class="form-control"
+        placeholder=""
+        aria-describedby="age__help"
+      />
+      <small id="age__help" class="text-muted">your age is : {age}</small>
+    </div>
+    <div class="mb-3">
+      <label for="weight" class="form-label"
+        >Weight : {formData.weight} lb</label
+      >
+      <input
+        bind:value={formData.weight}
+        type="range"
+        min="6"
+        max="500"
+        name="weight"
+        id="weight"
+        class="form-control"
+        placeholder=""
+        aria-describedby="weight__help"
+      />
+      <small id="weight__help" class="text-muted"
+        >your weight : {weight} lb</small
+      >
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
