@@ -1,4 +1,5 @@
 <script>
+  import Reactivity from './first components/Reactivity.svelte';
   import Form from './first components/Form.svelte';
   import CountryList from './first components/ListIterations.svelte';
   import DisplayToggler from './first components/DisplayToggler.svelte';
@@ -13,9 +14,9 @@
   let countries = ['France', 'England', 'Deutchland', 'Espana'];
 </script>
 
-<Form />
-
+<Reactivity />
 <!-- 
+  <Form />
 <CountryList {countries} />
 
 <Counter {...counterProps} />
