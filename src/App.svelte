@@ -14,13 +14,17 @@
     incrementValue: 5,
   };
   let countries = ['France', 'England', 'Deutchland', 'Espana'];
+  let dispatchedTxt = '';
+  const newFunction = (e) => {
+    dispatchedTxt = e.detail.txt;
+  };
 </script>
 
 <div>
-  <p>parent element</p>
+  <p>parent element : {dispatchedTxt}</p>
 </div>
 
-<PersonalizedEvents />
+<PersonalizedEvents on:info-dispatch={newFunction} />
 
 <!-- 
   <Events
