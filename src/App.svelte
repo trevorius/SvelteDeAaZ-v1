@@ -16,29 +16,28 @@
     incrementValue: 5,
   };
   let countries = ['France', 'England', 'Deutchland', 'Espana'];
-  let dispatchedTxt = '';
-  const newFunction = (e) => {
-    dispatchedTxt = e.detail.txt;
-  };
-  const clearTxt = (e) => {
-    dispatchedTxt = e.detail.txt;
-  };
-  let toggleDisplay = false;
 
-  const toggleCard = () => {
-    toggleDisplay = !toggleDisplay;
+  let dispatchedTxt = '';
+  const recievTXTfromChild = (e) => {
+    dispatchedTxt = e.detail.txt;
+  };
+
+  let displayToggler = false;
+
+  const toggleDisplayToggler = () => {
+    displayToggler = !displayToggler;
   };
 </script>
 
-<button class="mb-3" on:click={toggleCard}
-  >{toggleDisplay ? 'hide' : 'display'}</button
+<button class="mb-3" on:click={toggleDisplayToggler}
+  >{displayToggler ? 'hide' : 'display'}</button
 >
 <div>
   <p>{dispatchedTxt}</p>
-  {#if toggleDisplay}
+  {#if displayToggler}
     <LifeCycle
-      on:info-dispatch={newFunction}
-      on:clear-txt={clearTxt}
+      on:info-dispatch={recievTXTfromChild}
+      on:clear-txt={recievTXTfromChild}
       number="1"
     >
       <h2>slot 1</h2>
