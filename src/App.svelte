@@ -20,21 +20,37 @@
   const newFunction = (e) => {
     dispatchedTxt = e.detail.txt;
   };
+  const clearTxt = (e) => {
+    dispatchedTxt = e.detail.txt;
+  };
+  let toggleDisplay = false;
+
+  const toggleCard = () => {
+    toggleDisplay = !toggleDisplay;
+  };
 </script>
 
+<button class="mb-3" on:click={toggleCard}
+  >{toggleDisplay ? 'hide' : 'display'}</button
+>
 <div>
-  <p>parent element : {dispatchedTxt}</p>
-  <LifeCycle on:info-dispatch={newFunction} number="1">
-    <h2>slot 1</h2>
-    <div class="card-title  mb-2" slot="content">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores,
-      assumenda. Aut culpa modi alias nemo at, distinctio non accusantium ullam
-      sunt consectetur praesentium! Recusandae, neque.
-    </div>
-    <p class="card-footer text-muted" slot="footer">footer 1</p>
-  </LifeCycle>
+  <p>{dispatchedTxt}</p>
+  {#if toggleDisplay}
+    <LifeCycle
+      on:info-dispatch={newFunction}
+      on:clear-txt={clearTxt}
+      number="1"
+    >
+      <h2>slot 1</h2>
+      <div class="card-title  mb-2" slot="content">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores,
+        assumenda. Aut culpa modi alias nemo at, distinctio non accusantium
+        ullam sunt consectetur praesentium! Recusandae, neque.
+      </div>
+      <p class="card-footer text-muted" slot="footer">footer 1</p>
+    </LifeCycle>
+  {/if}
 </div>
-
 <!-- 
   <Slots on:info-dispatch={newFunction} number="2">
     <h2>slot 2</h2>
