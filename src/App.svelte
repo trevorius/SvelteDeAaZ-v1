@@ -1,5 +1,7 @@
 <script>
   import PersonalizedEvents from './first components/PersonalizedEvents.svelte';
+  import Slots from './first components/Slots.svelte';
+  import LifeCycle from './first components/LifeCycle.svelte';
   import Events from './first components/events.svelte';
   import Reactivity from './first components/Reactivity.svelte';
   import Form from './first components/Form.svelte';
@@ -22,18 +24,39 @@
 
 <div>
   <p>parent element : {dispatchedTxt}</p>
+  <LifeCycle on:info-dispatch={newFunction} number="1">
+    <h2>slot 1</h2>
+    <div class="card-title  mb-2" slot="content">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores,
+      assumenda. Aut culpa modi alias nemo at, distinctio non accusantium ullam
+      sunt consectetur praesentium! Recusandae, neque.
+    </div>
+    <p class="card-footer text-muted" slot="footer">footer 1</p>
+  </LifeCycle>
 </div>
 
-<PersonalizedEvents on:info-dispatch={newFunction} />
-
 <!-- 
+  <Slots on:info-dispatch={newFunction} number="2">
+    <h2>slot 2</h2>
+  </Slots>
+  <Slots on:info-dispatch={newFunction} number="3">
+    <h2>slot 3</h2>
+  </Slots>
+  <Slots on:info-dispatch={newFunction} number="4">
+    <h2>slot 4</h2>
+  </Slots>
+
+  <PersonalizedEvents on:info-dispatch={newFunction} />
   <Events
     on:click={() => {
       alert('clicked button!');
     }}
   />
+
   <Reactivity />
+
   <Form />
+
 <CountryList {countries} />
 
 <Counter {...counterProps} />
