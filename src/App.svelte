@@ -2,6 +2,7 @@
   import PersonalizedEvents from './first components/PersonalizedEvents.svelte';
   import Slots from './first components/Slots.svelte';
   import LifeCycle from './first components/LifeCycle.svelte';
+  import BasicUi from './first components/BasicUi.svelte';
   import Events from './first components/events.svelte';
   import Reactivity from './first components/Reactivity.svelte';
   import Form from './first components/Form.svelte';
@@ -16,13 +17,12 @@
     incrementValue: 5,
   };
   let countries = ['France', 'England', 'Deutchland', 'Espana'];
+  let displayToggler = !false;
 
   let dispatchedTxt = '';
   const recievTXTfromChild = (e) => {
     dispatchedTxt = e.detail.txt;
   };
-
-  let displayToggler = false;
 
   const toggleDisplayToggler = () => {
     displayToggler = !displayToggler;
@@ -34,22 +34,16 @@
 >
 <div>
   <p>{dispatchedTxt}</p>
+
   {#if displayToggler}
-    <LifeCycle
+    <BasicUi
       on:info-dispatch={recievTXTfromChild}
-      on:clear-txt={recievTXTfromChild}
+      on:close-modal={toggleDisplayToggler}
       number="1"
-    >
-      <h2>slot 1</h2>
-      <div class="card-title  mb-2" slot="content">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores,
-        assumenda. Aut culpa modi alias nemo at, distinctio non accusantium
-        ullam sunt consectetur praesentium! Recusandae, neque.
-      </div>
-      <p class="card-footer text-muted" slot="footer">footer 1</p>
-    </LifeCycle>
+    />
   {/if}
 </div>
+
 <!-- 
   <Slots on:info-dispatch={newFunction} number="2">
     <h2>slot 2</h2>
