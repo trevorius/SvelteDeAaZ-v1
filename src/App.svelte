@@ -2,7 +2,7 @@
   import PersonalizedEvents from './first components/PersonalizedEvents.svelte';
   import Slots from './first components/Slots.svelte';
   import LifeCycle from './first components/LifeCycle.svelte';
-  import BasicUi from './first components/BasicUi.svelte';
+  import BasicModal from './first components/BasicModal.svelte';
   import Events from './first components/events.svelte';
   import Reactivity from './first components/Reactivity.svelte';
   import Form from './first components/Form.svelte';
@@ -36,7 +36,7 @@
   <p>{dispatchedTxt}</p>
 
   {#if displayToggler}
-    <BasicUi
+    <BasicModal
       on:info-dispatch={recievTXTfromChild}
       on:close-modal={toggleDisplayToggler}
       number="1"
