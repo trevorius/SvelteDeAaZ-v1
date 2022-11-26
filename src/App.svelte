@@ -3,6 +3,7 @@
   import Slots from './first components/Slots.svelte';
   import LifeCycle from './first components/LifeCycle.svelte';
   import BasicModal from './first components/BasicModal.svelte';
+  import Tabs from './first components/Tabs.svelte';
   import Events from './first components/events.svelte';
   import Reactivity from './first components/Reactivity.svelte';
   import Form from './first components/Form.svelte';
@@ -17,7 +18,7 @@
     incrementValue: 5,
   };
   let countries = ['France', 'England', 'Deutchland', 'Espana'];
-  let displayToggler = !false;
+  let displayToggler = false;
 
   let dispatchedTxt = '';
   const recievTXTfromChild = (e) => {
@@ -32,9 +33,12 @@
 <button class="mb-3" on:click={toggleDisplayToggler}
   >{displayToggler ? 'hide' : 'display'}</button
 >
-<div>
-  <p>{dispatchedTxt}</p>
 
+<div class="content">
+  <Tabs />
+</div>
+
+<div>
   {#if displayToggler}
     <BasicModal
       on:info-dispatch={recievTXTfromChild}
