@@ -2,6 +2,7 @@
   import PersonalizedEvents from './first components/PersonalizedEvents.svelte';
   import Slots from './first components/Slots.svelte';
   import LifeCycle from './first components/LifeCycle.svelte';
+  import NavBar from './first components/NavBar.svelte';
   import BasicModal from './first components/BasicModal.svelte';
   import Tabs from './first components/Tabs.svelte';
   import Events from './first components/events.svelte';
@@ -29,6 +30,8 @@
     displayToggler = !displayToggler;
   };
 </script>
+
+<NavBar />
 
 <button class="mb-3" on:click={toggleDisplayToggler}
   >{displayToggler ? 'hide' : 'display'}</button
