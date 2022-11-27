@@ -36,6 +36,7 @@
           .then(() => {
             // console.log(allPokes);
             endTable = allPokes.slice(0, 20);
+            allPokes = allPokes;
           });
       });
   };
@@ -43,8 +44,10 @@
 </script>
 
 <SearchBar />
+
 <div class="content">
-  {#each endTable as pokemon (uuidv4())}
+  <!-- {#each endTable as pokemon (uuidv4())} -->
+  {#each allPokes as pokemon (uuidv4())}
     <Card name={pokemon.name} nameFr={pokemon.nameFr} image={pokemon.pic} />
   {/each}
 </div>
