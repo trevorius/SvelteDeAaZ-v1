@@ -7,7 +7,6 @@
 
 <!-- <DarkLightApplied /> -->
 <NavBar />
-<SearchBar />
 <Content />
 
 <style>
