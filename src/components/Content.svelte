@@ -1,5 +1,7 @@
 <script>
-  import SearchBar from './SearchBar.svelte';
+  import Card from './contentElements/Card.svelte';
+  import SearchBar from './contentElements/SearchBar.svelte';
+  import { v4 as uuidv4 } from 'uuid';
 
   let allPokes = [];
   let endTable = [];
@@ -32,14 +34,20 @@
             allPokes.push(fullPokemon);
           })
           .then(() => {
-            console.log(allPokes);
+            // console.log(allPokes);
+            endTable = allPokes.slice(0, 20);
           });
       });
   };
+  // console.log(endTable);
 </script>
 
 <SearchBar />
-<div class="content" />
+<div class="content">
+  {#each endTable as pokemon (uuidv4())}
+    <Card name={pokemon.name} nameFr={pokemon.nameFr} image={pokemon.pic} />
+  {/each}
+</div>
 
 <style>
   .content {
@@ -50,6 +58,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: orange;
+    /* background: orange; */
   }
 </style>
