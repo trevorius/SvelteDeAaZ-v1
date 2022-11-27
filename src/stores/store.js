@@ -14,19 +14,49 @@ writable can be edited by imports and readable can be edited by its'self.
 // export default text;
 
 
-import { readable } from 'svelte/store';
-let counter = 0;
+// import { readable } from 'svelte/store';
+// let counter = 0;
 
-const timer = readable(
+// const timer = readable(
 
-  counter
-  , (callback) => {
-    const interval = setInterval(() => {
-      counter++;
-      callback(counter)
-    }, 1000)
-    return () => { clearInterval(interval) }
+//   counter
+//   , (callback) => {
+//     const interval = setInterval(() => {
+//       counter++;
+//       callback(counter)
+//     }, 1000)
+//     return () => { clearInterval(interval) }
+//   }
+// )
+
+// export default timer;
+
+/* Custom Stores */
+import { writable } from 'svelte/store';
+
+const customStoreBox = () => {
+  const boxes = writable([
+    {
+      id: 1,
+      txt: "lorem1"
+    },
+    {
+      id: 2,
+      txt: "lorem2"
+    },
+    {
+      id: 3,
+      txt: "lorem3"
+    },
+  ]);
+  return {
+    subscribe: boxes.subscribe,
+    addBox: (box) => {
+      boxes.update(boxes => {
+        return [...boxes, box]
+      })
+    }
   }
-)
+}
 
-export default timer;
+export default customStoreBox();

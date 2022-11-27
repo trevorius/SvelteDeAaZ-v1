@@ -4,8 +4,13 @@
   import { onDestroy } from 'svelte';
   let content;
   //subscribe  gets data don't forget to unsubscribe from memory on destroy
-  let cleanstorData = storeData.subscribe((value) => {
+  // let cleanstorData =
+  storeData.subscribe((value) => {
     content = value;
+  });
+  storeData.addBox({
+    id: 4,
+    txt: 'lorem4',
   });
 
   // onDestroy(() => {
@@ -53,6 +58,12 @@
 
 <div class="content">
   <p>{content}</p>
+  {#each content as box (box.id)}
+    <div>
+      <h2>{box.txt}</h2>
+      <h3>{box.id}</h3>
+    </div>
+  {/each}
 </div>
 
 <!-- 
