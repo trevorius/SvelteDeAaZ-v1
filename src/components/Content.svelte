@@ -8,7 +8,7 @@
 
   // build data
   const fecthPokemons = (offset) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=3000`)
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`) // can be made larger to search them all (1000)
       .then((response) => response.json())
       .then((allPoke) => {
         allPoke.results.forEach((pokemon) => {
@@ -34,7 +34,7 @@
             allPokes.push(fullPokemon);
           })
           .then(() => {
-            // console.log(allPokes);
+            console.log(allPokes);
             endTable = allPokes.slice(0, 20);
             allPokes = allPokes;
           });
