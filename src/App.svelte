@@ -7,7 +7,7 @@
 </script>
 
 <!-- <AppComponents /> -->
-<div class="container {darkMode ? 'go-dark' : 'go-light'}">
+<div class="container-nonBS {darkMode ? 'go-dark' : 'go-light'}">
   <ToggleMode />
   <h1>Lorem ipsum dolor sit amet.</h1>
   <p class="content">
@@ -71,9 +71,10 @@
     text-align: center;
     padding: 1.5em 4em;
   }
-  .container-non {
+  .container-nonBS {
     width: 100%;
     height: auto;
+    min-height: 100vh;
   }
   .content {
     padding: 0.75em 5vw;
