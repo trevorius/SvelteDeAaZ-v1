@@ -7,8 +7,8 @@
   let endTable = [];
 
   // build data
-  const fecthPokemons = () => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+  const fecthPokemons = (offset) => {
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=3000`)
       .then((response) => response.json())
       .then((allPoke) => {
         allPoke.results.forEach((pokemon) => {
@@ -40,14 +40,24 @@
           });
       });
   };
+
+  const search = (e) => {
+    let value = e.detail.search;
+    endTable = allPokes.filter(
+      (p) =>
+        p.name.toLowerCase().includes(value) ||
+        p.nameFr.name.toLowerCase().includes(value)
+    );
+  };
+
   // console.log(endTable);
 </script>
 
-<SearchBar />
+<SearchBar pokemonCount={allPokes.length} on:search-pokedex={search} />
 
 <div class="content">
-  <!-- {#each endTable as pokemon (uuidv4())} -->
-  {#each allPokes as pokemon (uuidv4())}
+  {#each endTable as pokemon (uuidv4())}
+    <!-- {#each allPokes as pokemon (uuidv4())} -->
     <Card name={pokemon.name} nameFr={pokemon.nameFr} image={pokemon.pic} />
   {/each}
 </div>

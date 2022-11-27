@@ -1,9 +1,32 @@
-<script></script>
+<script>
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
 
-<form class="form-search">
-  <label for="search">Chouse a Pakemon</label>
-  <input type="text" id="search" placeholder=" search for pokemeon" />
-  <button type="submit">submit</button>
+  export let pokemonCount;
+
+  let search = '';
+
+  const doSearch = () => {
+    console.log(search);
+    dispatch('search-pokedex', { search: search });
+  };
+  const doSearchAndClear = () => {
+    dispatch('search-pokedex', { search: search });
+    search = '';
+  };
+</script>
+
+<form on:submit|preventDefault={doSearchAndClear} class="form-search">
+  <label for="search">Search the {pokemonCount} pokemons</label>
+  <input
+    type="text"
+    id="search"
+    placeholder=" search for pokemeon"
+    bind:value={search}
+    on:keyup={doSearch}
+  />
+  <button type="submit" on:click={doSearch(true)}>search and reset query</button
+  >
 </form>
 
 <style>
