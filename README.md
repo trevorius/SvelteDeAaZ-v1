@@ -1,3 +1,12 @@
+# svelte A to Z v1
+
+this is a repo following the Udemy course and how i adapted the code to English language and included all elelments in one larger app. 
+
+also changed code to ES6 synthax.
+
+
+
+
 # This repo is no longer maintained. Consider using `npm init vite` and selecting the `svelte` option or — if you want a full-fledged app framework and don't mind using pre-1.0 software — use [SvelteKit](https://kit.svelte.dev), the official application framework for Svelte.
 
 ---
