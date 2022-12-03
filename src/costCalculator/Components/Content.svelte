@@ -34,12 +34,31 @@
     };
     cardsArray = [...cardsArray, newExpense];
   };
+
+  const removeThisCard = (event) => {
+    let cardToRemove = {
+      id: event.detail.id,
+      name: event.detail.name,
+      amount: event.detail.amount,
+    };
+    cardsArray.forEach((card, index) => {
+      if (card.id === cardToRemove.id) {
+        cardsArray.splice(index, 1);
+      }
+    });
+    cardsArray = cardsArray;
+  };
 </script>
 
 <div class="container">
   <Form on:sendExpenseToParent={addCard} />
   <h2 class="my-4">Total Expenses : xxxx</h2>
   {#each cardsArray as expense (expense.id)}
-    <ExpenseCard name={expense.name} amount={expense.amount} />
+    <ExpenseCard
+      name={expense.name}
+      amount={expense.amount}
+      id={expense.id}
+      on:remove-this-card={removeThisCard}
+    />
   {/each}
 </div>
