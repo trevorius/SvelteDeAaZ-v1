@@ -36,17 +36,7 @@
   };
 
   const removeThisCard = (event) => {
-    let cardToRemove = {
-      id: event.detail.id,
-      name: event.detail.name,
-      amount: event.detail.amount,
-    };
-    cardsArray.forEach((card, index) => {
-      if (card.id === cardToRemove.id) {
-        cardsArray.splice(index, 1);
-      }
-    });
-    cardsArray = cardsArray;
+    cardsArray = cardsArray.filter((card) => event.detail.id !== card.id);
   };
 </script>
 
