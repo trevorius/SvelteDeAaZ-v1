@@ -1,13 +1,12 @@
 <script>
+  // import AppComponents from './first components/AppComponents.svelte';
   // import DarkLightApplied from './first components/DarkLightApplied.svelte';
-  import NavBar from './components/nav/NavBar.svelte';
-  import SearchBar from './components/contentElements/SearchBar.svelte';
-  import Content from './components/Content.svelte';
+  // import AppPokedex from './pokedex/AppPokedex.svelte';
 </script>
 
+<!-- <AppComponents /> -->
 <!-- <DarkLightApplied /> -->
-<NavBar />
-<Content />
 
+<!-- <AppPokedex /> -->
 <style>
 </style>
