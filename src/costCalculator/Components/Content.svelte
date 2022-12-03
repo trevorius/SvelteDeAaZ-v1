@@ -26,6 +26,10 @@
     },
   ];
 
+  $: total = cardsArray.reduce((acc, cur) => {
+    return (acc += cur.amount);
+  }, 0);
+
   const addCard = (event) => {
     let newExpense = {
       id: uuidv4(),
@@ -42,7 +46,7 @@
 
 <div class="container">
   <Form on:sendExpenseToParent={addCard} />
-  <h2 class="my-4">Total Expenses : xxxx</h2>
+  <h2 class="my-4">Total Expenses : {total}</h2>
   {#each cardsArray as expense (expense.id)}
     <ExpenseCard
       name={expense.name}
